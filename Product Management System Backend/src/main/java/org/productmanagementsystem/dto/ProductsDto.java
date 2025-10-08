@@ -5,12 +5,12 @@ import java.io.Serializable;
 import java.util.Base64;
 
 public class ProductsDto implements Serializable {
-    private Long id;
-    private String name;
-    private String brand;
-    private String category;
-    private String warranty;
-    private Integer price;
+    private final Long id;
+    private final String name;
+    private final String brand;
+    private final String category;
+    private final String warranty;
+    private final Integer price;
     private String pictureBase64; // Base64 string for frontend
 
     public ProductsDto(Products product) {

@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/products")
 public class ProductsController {
@@ -53,6 +52,4 @@ public class ProductsController {
                 .map(ProductsDto::new)
                 .collect(Collectors.toList());
     }
-
-
 }
