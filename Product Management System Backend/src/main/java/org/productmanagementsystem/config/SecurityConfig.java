@@ -12,7 +12,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())  // Disable CSRF in the new builder style
-                .cors(cors -> {} )             // Enable CORS handling
+                .cors(cors -> {
+                })             // Enable CORS handling
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/products/**").permitAll() // Public access
                         .anyRequest().authenticated()               // Other endpoints need auth

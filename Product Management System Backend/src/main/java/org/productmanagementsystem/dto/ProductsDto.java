@@ -1,6 +1,7 @@
 package org.productmanagementsystem.dto;
 
 import org.productmanagementsystem.model.Products;
+
 import java.io.Serializable;
 import java.util.Base64;
 
@@ -26,11 +27,31 @@ public class ProductsDto implements Serializable {
     }
 
     // Getters
-    public Long getId() { return id; }
-    public String getName() { return name; }
-    public String getBrand() { return brand; }
-    public String getCategory() { return category; }
-    public String getWarranty() { return warranty; }
-    public Integer getPrice() { return price; }
-    public String getPictureBase64() { return pictureBase64; }
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getWarranty() {
+        return warranty;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public String getPictureBase64() {
+        return pictureBase64;
+    }
 }

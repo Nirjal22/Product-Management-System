@@ -52,4 +52,15 @@ public class ProductsController {
                 .map(ProductsDto::new)
                 .collect(Collectors.toList());
     }
+
+    @GetMapping("/updateProduct")
+    public Products updating(Products products) {
+        return service.updateProducts(products);
+    }
+
+    @DeleteMapping("/deleteProduct/{id}")
+    public void deleting(@PathVariable Long id) {
+        service.deleteProducts(id);
+    }
+
 }

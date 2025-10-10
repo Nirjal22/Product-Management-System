@@ -1,5 +1,7 @@
 "use client";
 import React, { memo, useState, useEffect } from "react";
+import Image from "next/image";
+import { deleting, updating } from "../deleteAndUpdate/page";
 
 function ProductCard({
   id,
@@ -19,7 +21,7 @@ function ProductCard({
   pictureBase64: string;
 }) {
   return (
-    <li className="p-4 border rounded-lg shadow-md">
+    <li className="p-4 border rounded-lg shadow-md ">
       <div>
         <p>ID: {id}</p>
         <h2>{name}</h2>
@@ -34,6 +36,15 @@ function ProductCard({
             style={{ width: "150px", height: "150px", objectFit: "cover" }}
           />
         )}
+        {/* updating and deleting the products */}
+        <div>
+          <button onClick={() => updating()}>
+            <Image src="/update.svg" alt="Update" width={20} height={20} />
+          </button>
+          <button onClick={() => deleting(id)}>
+            <Image src="/delete.svg" alt="delete" width={20} height={20} />
+          </button>
+        </div>
       </div>
     </li>
   );

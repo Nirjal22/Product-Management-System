@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class ProductsService {
 
-@Autowired
+    @Autowired
     private ProductsRepo repo;
 
     public Products save(Products product) {
@@ -19,6 +19,14 @@ public class ProductsService {
 
     public List<Products> getAllProducts() {
         return repo.findAll();
+    }
+
+    public void deleteProducts(Long id) {
+        repo.deleteById(id);
+    }
+
+    public Products updateProducts(Products product) {
+        return repo.save(product);
     }
 
 }
