@@ -72,7 +72,6 @@ function SendingData() {
             {responseData && (
                 <div style={{ marginTop: "20px" }}>
                     <h3>Saved Product:</h3>
-                    <pre>{JSON.stringify(responseData, null, 2)}</pre>
                 </div>
             )}
         </div>
