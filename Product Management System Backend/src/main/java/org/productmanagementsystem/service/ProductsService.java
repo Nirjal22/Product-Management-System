@@ -13,7 +13,16 @@ public class ProductsService {
     @Autowired
     private ProductsRepo repo;
 
-    public Products save(Products product) {
+    public Products saving(Products product) {
+        List<Long> ids = repo.findAllIds();
+        Long nextId = 1L;
+
+        for (Long id : ids) {
+            if (!id.equals(nextId)) break; // found a gap
+            nextId++;
+        }
+
+        product.setId(nextId);
         return repo.save(product);
     }
 
@@ -26,7 +35,7 @@ public class ProductsService {
     }
 
     public Products updateProducts(Products product) {
-        return repo.save(product);
+        return saving(product);
     }
 
 }

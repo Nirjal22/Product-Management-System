@@ -38,7 +38,7 @@ function ProductCard({
         )}
         {/* updating and deleting the products */}
         <div>
-          <button onClick={() => updating()}>
+          <button onClick={() => updating(id)}>
             <Image src="/update.svg" alt="Update" width={20} height={20} />
           </button>
           <button onClick={() => deleting(id)}>
@@ -82,7 +82,7 @@ function ReceivingData() {
     <div>
       <h1>Products</h1>
       <ul style={{ listStyle: "none", padding: 0, display: "grid", gap: "1rem" }}>
-        {products.map((prod) => (
+        {products.sort((a,b)=>a.id - b.id).map((prod) => (
           <ProductCard
             key={prod.id}
             id={prod.id}

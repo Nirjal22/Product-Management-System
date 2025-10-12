@@ -71,7 +71,7 @@ function SendingData() {
             {error && <p style={{ color: "red" }}>Error: {error}</p>}
             {responseData && (
                 <div style={{ marginTop: "20px" }}>
-                    <h3>Saved Product:</h3>
+                    <h3>Product Saved Successfully.</h3>
                 </div>
             )}
         </div>

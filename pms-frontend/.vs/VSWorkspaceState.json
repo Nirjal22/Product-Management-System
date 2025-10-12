@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app",
+    "\\app\\deleteAndUpdate",
+    "\\app\\receivingData",
+    "\\app\\sendingData"
+  ],
+  "SelectedNode": "\\app\\sendingData\\page.tsx",
+  "PreviewInSolutionExplorer": false
+}

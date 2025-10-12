@@ -42,7 +42,7 @@ public class ProductsController {
                 throw new RuntimeException(e);
             }
         }
-        return service.save(product);
+        return service.saving(product);
     }
 
     @GetMapping("/viewProducts")
@@ -53,7 +53,7 @@ public class ProductsController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/updateProduct")
+    @PutMapping("/updateProduct/{id}")
     public Products updating(Products products) {
         return service.updateProducts(products);
     }
