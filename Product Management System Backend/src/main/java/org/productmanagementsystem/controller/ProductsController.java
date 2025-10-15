@@ -53,14 +53,40 @@ public class ProductsController {
                 .collect(Collectors.toList());
     }
 
-    @PutMapping("/updateProduct/{id}")
-    public Products updating(Products products) {
-        return service.updateProducts(products);
+    @PostMapping(value = "/updateProduct/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ProductsDto updateProduct(
+            @PathVariable Long id,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String brand,
+            @RequestParam(required = false) String category,
+            @RequestParam(required = false) String warranty,
+            @RequestParam(required = false) String price,
+            @RequestParam(required = false) MultipartFile picture
+    ) throws IOException {
+
+        // Fetch the existing product
+        Products existing = service.getProductById(id);
+
+        if (existing == null) {
+            throw new RuntimeException("Product not found with ID: " + id);
+        }
+
+        // Update only the provided fields
+        if (name != null) existing.setName(name);
+        if (brand != null) existing.setBrand(brand);
+        if (category != null) existing.setCategory(category);
+        if (warranty != null) existing.setWarranty(warranty);
+        if (price != null) existing.setPrice(Integer.parseInt(price));
+        if (picture != null && !picture.isEmpty()) {
+            existing.setPicture(picture.getBytes());
+        }
+
+        Products updated = service.updateProducts(existing);
+        return new ProductsDto(updated);
     }
 
     @DeleteMapping("/deleteProduct/{id}")
     public void deleting(@PathVariable Long id) {
         service.deleteProducts(id);
     }
-
 }

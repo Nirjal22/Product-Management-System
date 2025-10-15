@@ -1,8 +1,11 @@
-import React from 'react';
+"use client";
+import React, { useState } from 'react';
 import SendingData from './sendingData/page';
 import Link from 'next/link';
+import AuthPage from './auth/page';
 
 function Home() {
+
   return (
     <div>
 
@@ -14,8 +17,9 @@ function Home() {
         <h2>Welcome to the Products Management System</h2>
         <p>Manage your products efficiently and effectively.</p>
 
-        <SendingData />
-        <Link href="/receivingData">View products</Link>
+        <AuthPage/>
+        {/* <SendingData /> */}
+        {/* <Link href="/receivingData">View products</Link> */}
       </main>
 
       <footer>

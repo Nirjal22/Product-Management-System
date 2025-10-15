@@ -13,7 +13,6 @@ function SendingData() {
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        console.log("Form submitted!");
 
         const formData = new FormData();
         formData.append("name", name);
@@ -31,8 +30,13 @@ function SendingData() {
 
             if (!response.ok) throw new Error(`Server error: ${response.status}`);
             const data = await response.json();
-            console.log("Response from backend:", data);
             setResponseData(data);
+            setName("");
+            setBrand("");
+            setCategory("");
+            setWarranty("");
+            setPrice("");
+            setPicture(null);
         } catch (err: any) {
             console.error(err);
             setError(err.message);
@@ -71,7 +75,7 @@ function SendingData() {
             {error && <p style={{ color: "red" }}>Error: {error}</p>}
             {responseData && (
                 <div style={{ marginTop: "20px" }}>
-                    <h3>Product Saved Successfully.</h3>
+                    <h3>Product Saved Successfully</h3>
                 </div>
             )}
         </div>
@@ -79,3 +83,16 @@ function SendingData() {
 }
 
 export default SendingData;
+
+// ---------- Delete Function ----------
+export async function deleting(id: string) {
+    console.log("deleted");
+    try {
+        await fetch(`http://localhost:8080/products/deleteProduct/${id}`, {
+            method: "DELETE",
+        });
+        window.location.reload();
+    } catch (error) {
+        console.log(error);
+    }
+}
